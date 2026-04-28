@@ -1,0 +1,93 @@
+---
+import CalculatorLayout from '../layouts/CalculatorLayout.astro';
+import RpGpaCalculatorWidget from '../components/calculators/RpGpaCalculator';
+
+const relatedCalculators = [
+  { title: "NYP GPA Calculator", path: "/nyp-gpa-calculator" },
+  { title: "SIT GPA Calculator", path: "/sit-gpa-calculator" },
+  { title: "NUS GPA Calculator", path: "/nus-gpa-calculator" },
+];
+---
+
+<CalculatorLayout
+  title="RP GPA Calculator"
+  description="Calculate your Cumulative Grade Point Average (CGPA) for Republic Polytechnic (RP). Track your current semester grades and plan your academic progression."
+  category="Academic & Education"
+  categoryPath="/categories/academic"
+>
+  <RpGpaCalculatorWidget client:load slot="calculator" />
+
+  <Fragment slot="content">
+    <h2>How to use the RP GPA Calculator</h2>
+    <p>
+      The <strong>RP GPA Calculator</strong> is specifically designed for students at Republic Polytechnic. RP uses a 4.0 grading system to calculate your Grade Point Average across your diploma programme.
+    </p>
+    <p>
+      To calculate your GPA:
+    </p>
+    <ol>
+      <li><strong>(Optional) Enter your current standing:</strong> If you're not in your first semester, input your current Cumulative GPA and the total number of graded credits you've earned so far.</li>
+      <li><strong>Add your current semester modules:</strong> Enter the module name, credit units (typically 2 or 4), and your expected grade for each module you are taking.</li>
+      <li><strong>Pass/Fail Modules:</strong> If a module is graded as Pass or Fail, select those options. These modules do not contribute to your GPA calculation but are necessary for graduation.</li>
+    </ol>
+    <p>
+      The calculator will automatically determine your semester GPA, your new overall Cumulative GPA, and whether you meet the academic requirements to pass.
+    </p>
+
+    <h3>RP Grade Points Table</h3>
+    <p>Republic Polytechnic uses the following 4.0 scale:</p>
+    <ul>
+      <li><strong>A:</strong> 4.0 (Excellent)</li>
+      <li><strong>B+:</strong> 3.5 (Very Good)</li>
+      <li><strong>B:</strong> 3.0 (Good)</li>
+      <li><strong>C+:</strong> 2.5 (Satisfactory)</li>
+      <li><strong>C:</strong> 2.0 (Acceptable)</li>
+      <li><strong>D+:</strong> 1.5 (Conditional Pass)</li>
+      <li><strong>D:</strong> 1.0 (Conditional Pass)</li>
+      <li><strong>F:</strong> 0.0 (Fail)</li>
+    </ul>
+
+    <h3>Diploma with Merit</h3>
+    <p>
+      To be awarded a Diploma with Merit, you generally need to be in the top 10% of your graduating cohort for your specific diploma programme. While the exact GPA cutoff varies by course and year, achieving a CGPA of 3.5 and above puts you in a strong position to be eligible.
+    </p>
+  </Fragment>
+
+  <Fragment slot="faq">
+    <div class="space-y-4">
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          What happens if I get a D or D+?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          Grades D and D+ are considered "Conditional Passes". You will earn the credits for the module, but your GPA will be significantly lowered. It is important to maintain an overall CGPA of at least 1.0 to remain in your course.
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          How do Daily Grades (DG) affect my final grade?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          RP is unique for its Problem-Based Learning (PBL) approach, where Daily Grades (DG) form a significant portion of your final module grade. While this calculator only takes the <em>final expected letter grade</em>, you should ensure your DGs are consistently high to secure an 'A' or 'B'.
+        </p>
+      </details>
+    </div>
+  </Fragment>
+
+  <Fragment slot="related">
+    {relatedCalculators.map(calc => (
+      <li>
+        <a href={calc.path} class="group flex items-center p-2 rounded-md hover:bg-white dark:hover:bg-slate-700 transition-colors">
+          <svg class="w-4 h-4 mr-2 text-slate-400 group-hover:text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">{calc.title}</span>
+        </a>
+      </li>
+    ))}
+  </Fragment>
+</CalculatorLayout>

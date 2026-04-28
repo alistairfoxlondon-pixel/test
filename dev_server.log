@@ -1,0 +1,16 @@
+
+> app@0.0.1 dev
+> astro dev
+
+[vite] connected.
+13:14:10 [types] Generated 1ms
+13:14:10 [WARN] [content] Content config not loaded
+13:14:10 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.1.9 ready in 2279 ms
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+13:14:10 watching for file changes...
+13:33:03 [200] / 93ms
+13:33:04 [vite] ✨ new dependencies optimized: astro/runtime/client/dev-toolbar/entrypoint.js
+13:33:04 [vite] ✨ optimized dependencies changed. reloading
+13:33:07 [200] /nus-cap-calculator 60ms

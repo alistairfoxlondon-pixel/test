@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="About Us" 
+  description="Learn more about SG Calc, the ultimate collection of free, fast, and accurate calculators built for Singaporeans."
+>
+  <div class="max-w-3xl mx-auto py-8">
+    <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-8">
+      About SG Calc
+    </h1>
+
+    <div class="prose prose-slate dark:prose-invert prose-teal max-w-none">
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+        Welcome to <strong>SG Calc</strong>. We build fast, reliable, and privacy-focused calculators designed specifically for Singaporeans.
+      </p>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">Our Mission</h2>
+      <p class="text-slate-600 dark:text-slate-300 mb-6">
+        Whether you are a student at NUS trying to project your CAP, a prospective car owner calculating COE and loan depreciation, or an HR professional calculating prorated leave, finding the exact formula tailored to Singapore's unique systems can be frustrating. 
+      </p>
+      <p class="text-slate-600 dark:text-slate-300 mb-6">
+        Our mission is to provide a single, organized hub for every calculation a Singaporean might need. We focus on:
+      </p>
+      <ul class="list-disc pl-6 text-slate-600 dark:text-slate-300 mb-8 space-y-2">
+        <li><strong>Speed:</strong> Our tools load instantly and calculate in real-time as you type.</li>
+        <li><strong>Accuracy:</strong> We meticulously research official guidelines (from MOE, LTA, CPF Board, etc.) to ensure our tools reflect the latest Singaporean standards.</li>
+        <li><strong>Privacy:</strong> All calculations happen directly in your browser. We do not store your personal inputs on our servers.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">Who We Are</h2>
+      <p class="text-slate-600 dark:text-slate-300 mb-6">
+        SG Calc is maintained by a small team of independent developers and researchers based in Singapore. We built these tools because we needed them ourselves, and we hope you find them just as useful.
+      </p>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">Disclaimer</h2>
+      <p class="text-slate-600 dark:text-slate-300 mb-6">
+        While we strive for 100% accuracy, all calculators on this site are provided for reference and educational purposes only. They do not constitute official financial, medical, or academic advice. Always verify important calculations with the relevant official institutions or certified professionals.
+      </p>
+
+      <div class="mt-10 p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Have a suggestion?</h3>
+        <p class="text-slate-600 dark:text-slate-300 mb-4">We're always looking to add new calculators or improve existing ones.</p>
+        <a href="/contact" class="btn-primary inline-block">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</Layout>

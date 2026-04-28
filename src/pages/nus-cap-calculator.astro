@@ -1,0 +1,124 @@
+---
+import CalculatorLayout from '../layouts/CalculatorLayout.astro';
+import NusCapCalculatorWidget from '../components/calculators/NusCapCalculator';
+
+const relatedCalculators = [
+  { title: "NUS GPA Calculator", path: "/nus-gpa-calculator" },
+  { title: "NTU CGPA Calculator", path: "/ntu-cgpa-calculator" },
+  { title: "SMU GPA Calculator", path: "/smu-gpa-calculator" },
+  { title: "SUSS GPA Calculator", path: "/suss-gpa-calculator" },
+];
+---
+
+<CalculatorLayout
+  title="NUS CAP Calculator"
+  description="Calculate your Cumulative Average Point (CAP) for the National University of Singapore (NUS) quickly and easily. Includes S/U grade handling and Honours classification."
+  category="Academic & Education"
+  categoryPath="/categories/academic"
+>
+  <NusCapCalculatorWidget client:load slot="calculator" />
+
+  <Fragment slot="content">
+    <h2>How to use the NUS CAP Calculator</h2>
+    <p>
+      The <strong>NUS Cumulative Average Point (CAP)</strong> system is used to track your academic performance throughout your undergraduate journey at the National University of Singapore. Our calculator is designed to make this process as simple and fast as possible.
+    </p>
+    <p>
+      To use the calculator:
+    </p>
+    <ol>
+      <li><strong>(Optional) Enter your current standing:</strong> If you are not a freshman, enter your current Cumulative CAP and the total number of graded Modular Credits (MCs) you have accumulated so far.</li>
+      <li><strong>Add your current semester modules:</strong> Enter the name (optional), MCs, and expected grade for each module you are taking this semester.</li>
+      <li><strong>Handle S/U Options:</strong> If you are exercising the Satisfactory/Unsatisfactory (S/U) option, simply select 'S' or 'U' from the grade dropdown. These will be automatically excluded from your CAP calculation but the credits for 'S' grades will count towards your graduation requirements.</li>
+    </ol>
+    <p>
+      The calculator updates in real-time, showing your expected CAP for the current semester, your new overall Cumulative CAP, and your projected Honours classification.
+    </p>
+
+    <h3>NUS Grade Points Table</h3>
+    <p>NUS uses a 5.0 point grading system. The grade points are mapped as follows:</p>
+    <ul>
+      <li><strong>A+ / A:</strong> 5.0</li>
+      <li><strong>A-:</strong> 4.5</li>
+      <li><strong>B+:</strong> 4.0</li>
+      <li><strong>B:</strong> 3.5</li>
+      <li><strong>B-:</strong> 3.0</li>
+      <li><strong>C+:</strong> 2.5</li>
+      <li><strong>C:</strong> 2.0</li>
+      <li><strong>D+:</strong> 1.5</li>
+      <li><strong>D:</strong> 1.0</li>
+      <li><strong>F:</strong> 0.0</li>
+    </ul>
+
+    <h3>Degree Classification (Honours)</h3>
+    <p>Based on your final CAP, you will be awarded your degree with the following classifications (for cohorts admitted from AY2012/2013 onwards):</p>
+    <ul>
+      <li><strong>Highest Distinction (First Class Honours):</strong> CAP 4.50 and above</li>
+      <li><strong>Distinction (Second Class Honours, Upper Division):</strong> CAP 4.00 - 4.49</li>
+      <li><strong>Merit (Second Class Honours, Lower Division):</strong> CAP 3.50 - 3.99</li>
+      <li><strong>Honours:</strong> CAP 3.00 - 3.49</li>
+      <li><strong>Pass:</strong> CAP 2.00 - 2.99</li>
+    </ul>
+    <p><em>Note: Students must obtain a minimum CAP of 2.00 to graduate.</em></p>
+  </Fragment>
+
+  <Fragment slot="faq">
+    <div class="space-y-4">
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          Do S/U modules affect my CAP?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          No. Modules graded as Satisfactory (S) or Unsatisfactory (U) are excluded from your CAP calculation. However, if you receive an 'S' grade, you will still earn the Modular Credits (MCs) towards your graduation requirements.
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          What happens if I get a 'D' grade?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          A 'D' grade awards 1.0 grade point. It is considered a passing grade, meaning you will earn the MCs for the module, but it will significantly lower your CAP.
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          What are CS/CU grades?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          CS (Completed Satisfactorily) and CU (Completed Unsatisfactorily) are grades usually given for modules like industrial attachments or certain seminars. Like S/U, they do not affect your CAP.
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          Is there a difference between A+ and A?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          In terms of CAP calculation, both A+ and A award the maximum 5.0 grade points. However, achieving an A+ is often significantly harder as it is usually reserved for the absolute top percentage of a cohort.
+        </p>
+      </details>
+    </div>
+  </Fragment>
+
+  <Fragment slot="related">
+    {relatedCalculators.map(calc => (
+      <li>
+        <a href={calc.path} class="group flex items-center p-2 rounded-md hover:bg-white dark:hover:bg-slate-700 transition-colors">
+          <svg class="w-4 h-4 mr-2 text-slate-400 group-hover:text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">{calc.title}</span>
+        </a>
+      </li>
+    ))}
+  </Fragment>
+</CalculatorLayout>

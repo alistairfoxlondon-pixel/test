@@ -1,0 +1,112 @@
+---
+import CalculatorLayout from '../layouts/CalculatorLayout.astro';
+import SitGpaCalculatorWidget from '../components/calculators/SitGpaCalculator';
+
+const relatedCalculators = [
+  { title: "NTU CGPA Calculator", path: "/ntu-cgpa-calculator" },
+  { title: "SUSS GPA Calculator", path: "/suss-gpa-calculator" },
+  { title: "RP GPA Calculator", path: "/rp-gpa-calculator" },
+];
+---
+
+<CalculatorLayout
+  title="SIT GPA Calculator"
+  description="Calculate your Cumulative Grade Point Average (CGPA) for the Singapore Institute of Technology (SIT). Accurate trimester calculations and Honours classifications."
+  category="Academic & Education"
+  categoryPath="/categories/academic"
+>
+  <SitGpaCalculatorWidget client:load slot="calculator" />
+
+  <Fragment slot="content">
+    <h2>How to use the SIT GPA Calculator</h2>
+    <p>
+      The <strong>SIT CGPA Calculator</strong> is designed for students at the Singapore Institute of Technology. SIT uses a trimester system and a 5.0 grade point scale to calculate your Cumulative Grade Point Average.
+    </p>
+    <p>
+      To use the calculator:
+    </p>
+    <ol>
+      <li><strong>(Optional) Enter your current standing:</strong> Input your current CGPA and the total number of graded credits you have accumulated from previous trimesters.</li>
+      <li><strong>Add your current modules:</strong> Enter the credits (commonly 6 for a standard module) and your expected grade for each module you are taking this trimester.</li>
+      <li><strong>Ungraded Modules:</strong> If a module is graded on a Pass/Fail basis, select 'Pass' or 'Fail'. These will not be factored into your CGPA calculation.</li>
+    </ol>
+    <p>
+      The calculator will update instantly to show your projected trimester GPA, your overall CGPA, and your expected degree classification.
+    </p>
+
+    <h3>SIT Grade Points Table</h3>
+    <p>SIT uses a standard 5.0 system for its degree programmes:</p>
+    <ul>
+      <li><strong>A+ / A:</strong> 5.0</li>
+      <li><strong>A-:</strong> 4.5</li>
+      <li><strong>B+:</strong> 4.0</li>
+      <li><strong>B:</strong> 3.5</li>
+      <li><strong>B-:</strong> 3.0</li>
+      <li><strong>C+:</strong> 2.5</li>
+      <li><strong>C:</strong> 2.0</li>
+      <li><strong>D+:</strong> 1.5</li>
+      <li><strong>D:</strong> 1.0</li>
+      <li><strong>F:</strong> 0.0</li>
+    </ul>
+
+    <h3>SIT Honours Classification</h3>
+    <p>For most SIT-conferred degree programmes, Honours are classified based on your final CGPA as follows:</p>
+    <ul>
+      <li><strong>Honours with Highest Distinction:</strong> CGPA 4.50 - 5.00</li>
+      <li><strong>Honours with Distinction:</strong> CGPA 4.00 - 4.49</li>
+      <li><strong>Honours with Merit:</strong> CGPA 3.50 - 3.99</li>
+      <li><strong>Honours:</strong> CGPA 3.00 - 3.49</li>
+      <li><strong>Pass:</strong> CGPA 2.00 - 2.99</li>
+    </ul>
+    <p><em>Note: Joint degree programmes with overseas university partners may have different grading scales or classification rules. Always refer to your specific programme guidelines.</em></p>
+  </Fragment>
+
+  <Fragment slot="faq">
+    <div class="space-y-4">
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          How many credits is a typical SIT module?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          A standard module at SIT typically carries 6 credits. However, some modules like the Integrated Work Study Programme (IWSP) or final year projects may carry significantly more credits (e.g., 20 or 24 credits).
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          Does the IWSP affect my CGPA?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          This depends on your specific degree programme. For many SIT-conferred programmes, the IWSP is graded on a Pass/Fail basis and does not affect your CGPA. However, you should confirm this in your student handbook.
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          I am in a Joint Degree Programme (JDP). Can I use this?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          Yes, if your programme uses the standard 5.0 grade point scale. If your overseas partner university dictates a different grading scale (e.g., a 4.0 scale or percentage-based honours), this calculator may not be accurate for you.
+        </p>
+      </details>
+    </div>
+  </Fragment>
+
+  <Fragment slot="related">
+    {relatedCalculators.map(calc => (
+      <li>
+        <a href={calc.path} class="group flex items-center p-2 rounded-md hover:bg-white dark:hover:bg-slate-700 transition-colors">
+          <svg class="w-4 h-4 mr-2 text-slate-400 group-hover:text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">{calc.title}</span>
+        </a>
+      </li>
+    ))}
+  </Fragment>
+</CalculatorLayout>

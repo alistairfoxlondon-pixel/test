@@ -1,0 +1,90 @@
+---
+import CalculatorLayout from '../layouts/CalculatorLayout.astro';
+import NusGpaCalculatorWidget from '../components/calculators/NusGpaCalculator';
+
+const relatedCalculators = [
+  { title: "NUS CAP Calculator", path: "/nus-cap-calculator" },
+  { title: "NTU CGPA Calculator", path: "/ntu-cgpa-calculator" },
+  { title: "SMU GPA Calculator", path: "/smu-gpa-calculator" },
+  { title: "SUSS GPA Calculator", path: "/suss-gpa-calculator" },
+];
+---
+
+<CalculatorLayout
+  title="NUS GPA Calculator"
+  description="Calculate your Grade Point Average (GPA) for the National University of Singapore (NUS) quickly and easily. Includes S/U grade handling."
+  category="Academic & Education"
+  categoryPath="/categories/academic"
+>
+  <NusGpaCalculatorWidget client:load slot="calculator" />
+
+  <Fragment slot="content">
+    <h2>How to use the NUS GPA Calculator</h2>
+    <p>
+      The <strong>NUS GPA Calculator</strong> helps you determine your Grade Point Average based on the modules you are currently taking or plan to take. While NUS officially uses the term Cumulative Average Point (CAP), many students still refer to it as GPA. Our calculator is designed to make this process as simple and fast as possible.
+    </p>
+    <p>
+      To use the calculator:
+    </p>
+    <ol>
+      <li><strong>Add your modules:</strong> Enter the name (optional), MCs, and expected grade for each module you are calculating for.</li>
+      <li><strong>Handle S/U Options:</strong> If you are exercising the Satisfactory/Unsatisfactory (S/U) option, simply select 'S' or 'U' from the grade dropdown. These will be automatically excluded from your calculation but the credits for 'S' grades will count towards your graduation requirements.</li>
+    </ol>
+    <p>
+      The calculator updates in real-time, showing your expected GPA based on the inputs provided.
+    </p>
+
+    <h3>NUS Grade Points Table</h3>
+    <p>NUS uses a 5.0 point grading system. The grade points are mapped as follows:</p>
+    <ul>
+      <li><strong>A+ / A:</strong> 5.0</li>
+      <li><strong>A-:</strong> 4.5</li>
+      <li><strong>B+:</strong> 4.0</li>
+      <li><strong>B:</strong> 3.5</li>
+      <li><strong>B-:</strong> 3.0</li>
+      <li><strong>C+:</strong> 2.5</li>
+      <li><strong>C:</strong> 2.0</li>
+      <li><strong>D+:</strong> 1.5</li>
+      <li><strong>D:</strong> 1.0</li>
+      <li><strong>F:</strong> 0.0</li>
+    </ul>
+  </Fragment>
+
+  <Fragment slot="faq">
+    <div class="space-y-4">
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          What is the difference between CAP and GPA?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          At NUS, the official term is Cumulative Average Point (CAP). However, it is fundamentally the same calculation as a standard Grade Point Average (GPA) used in other universities. This calculator functions identically to our CAP calculator but is streamlined for a single term or set of modules.
+        </p>
+      </details>
+      <details class="group bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg">
+        <summary class="font-medium cursor-pointer list-none flex justify-between items-center text-slate-900 dark:text-slate-100">
+          Do S/U modules affect my GPA?
+          <span class="transition group-open:rotate-180">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </summary>
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          No. Modules graded as Satisfactory (S) or Unsatisfactory (U) are excluded from your GPA calculation. However, if you receive an 'S' grade, you will still earn the Modular Credits (MCs) towards your graduation requirements.
+        </p>
+      </details>
+    </div>
+  </Fragment>
+
+  <Fragment slot="related">
+    {relatedCalculators.map(calc => (
+      <li>
+        <a href={calc.path} class="group flex items-center p-2 rounded-md hover:bg-white dark:hover:bg-slate-700 transition-colors">
+          <svg class="w-4 h-4 mr-2 text-slate-400 group-hover:text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">{calc.title}</span>
+        </a>
+      </li>
+    ))}
+  </Fragment>
+</CalculatorLayout>
