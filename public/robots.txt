@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://sgcalc.example.com/sitemap-index.xml
+# Host
+Host: https://nomadshield-engine.vercel.app
+
+# Sitemaps
+Sitemap: https://nomadshield-engine.vercel.app/sitemap.xml
